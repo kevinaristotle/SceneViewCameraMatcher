@@ -26,8 +26,9 @@ public class MatchToSceneViewCamEditor : Editor
     {
         DrawDefaultInspector();
 
-        if (GUILayout.Button("Match To Scene View Cam"))
+        if (GUILayout.Button("Match To SceneView Cam"))
         {
+            Undo.RecordObject(source.tragetTransform, "Matched transform to SceneView cam");
             source.tragetTransform.position = SceneView.GetAllSceneCameras()[0].transform.position;
             source.tragetTransform.rotation = SceneView.GetAllSceneCameras()[0].transform.rotation;
         }
